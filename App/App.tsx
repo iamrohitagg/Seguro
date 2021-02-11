@@ -1,9 +1,9 @@
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 import React from 'react'
 
 const App = () => {
-    return(
-        <Navigation/>       
+    return (
+        <Navigation />
     )
 }
 
