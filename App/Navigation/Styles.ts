@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   HeaderIconContainer: {
     flexDirection: 'row',
     width: 60,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     marginRight: 10,
   },
 });
