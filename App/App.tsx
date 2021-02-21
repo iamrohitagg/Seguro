@@ -1,10 +1,15 @@
-import Navigation from './Navigation/Navigation'
-import React from 'react'
+import Navigation from './Navigation/Navigation';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 
 const App = () => {
-    return (
+  return (
+    <>
+      <SafeAreaView style={{flex: 1}}>
         <Navigation />
-    )
-}
+      </SafeAreaView>
+    </>
+  );
+};
 
-export default App
+export default App;

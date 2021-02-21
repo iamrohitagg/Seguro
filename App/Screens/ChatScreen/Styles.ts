@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   chatContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '95%',
+    padding: 10,
   },
   leftContainer: {
     flexDirection: 'row',

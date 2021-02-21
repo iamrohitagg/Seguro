@@ -19,8 +19,7 @@ export default [
     ],
     lastMessage: {
       id: 'm1',
-      content:
-        ' Well done this sprint, guys! Well done this sprint, guys! Well done this sprint, guys!',
+      content: ' Well done this sprint, guys!',
       createdAt: '2020-10-03T14:48:00.000Z',
     },
   },

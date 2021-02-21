@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, Image, StatusBar} from 'react-native';
+import {View, Text, Image, StatusBar, TouchableOpacity} from 'react-native';
 import styles from './Styles';
 import {ChatRoom} from '../../Types/types';
 import moment from 'moment';
 import Colors from '../../Themes/Colors';
+import {useNavigation} from '@react-navigation/native';
 
 export type ChatRoomProps = {
   chatRoom: ChatRoom;
@@ -12,15 +13,21 @@ export type ChatRoomProps = {
 const ChatScreen = (props: ChatRoomProps) => {
   const {chatRoom} = props;
   const user = chatRoom.users[1];
+  const navigation = useNavigation();
+
+  const onChatListItemPress = () => {
+    navigation.navigate('ChatRoom', {name: user.name});
+  };
 
   return (
-    <View style={styles.chatContainer}>
+    <TouchableOpacity
+      style={styles.chatContainer}
+      onPress={onChatListItemPress}>
       <View style={styles.leftContainer}>
         <StatusBar
-          animated={true}
           backgroundColor={Colors.header.backgroundColor}
           showHideTransition="none"
-          hidden={false}
+          barStyle="light-content"
         />
 
         <Image source={{uri: user.imageUri}} style={styles.avatar} />
@@ -32,7 +39,7 @@ const ChatScreen = (props: ChatRoomProps) => {
       <Text style={styles.date}>
         {moment(chatRoom.lastMessage.createdAt).format('DD/MM/YY')}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

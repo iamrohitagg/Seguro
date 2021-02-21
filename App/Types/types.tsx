@@ -10,7 +10,8 @@ export type MainTabParamList = {
   Chats: undefined;
   Status: undefined;
   Calls: undefined;
-  Home: undefined
+  Home: undefined;
+  ChatRoom: undefined
 };
 
 export type TabOneParamList = {
