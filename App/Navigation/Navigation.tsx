@@ -2,7 +2,7 @@ import * as React from 'react';
 import Home from '../Home';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {MainTabParamList} from '../Types/types';
+import {MainTabParamList, Routes} from '../Types/types';
 import Login from '../Login';
 import Colors from '../Themes/Colors';
 import {View} from 'react-native';
@@ -14,6 +14,9 @@ import FontistoIcon from 'react-native-vector-icons/Fontisto';
 import Fonts from '../Themes/Fonts';
 import ChatScreenContainer from '../Screens/ChatScreen/ChatScreenContainer';
 import ChatRoomContainer from '../Screens/ChatRoom/ChatRoomContainer';
+import ThreeDotIcon from 'react-native-vector-icons/Entypo';
+import VoiceCallIcon from 'react-native-vector-icons/FontAwesome5';
+import VideoCallIcon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator<MainTabParamList>();
 const TopNavigation = createMaterialTopTabNavigator<MainTabParamList>();
@@ -80,11 +83,13 @@ const Navigation = () => {
                   name="search"
                   size={20}
                   color={Colors.header.iconColor}
+                  style={{marginRight: 20, fontWeight: '100'}}
                 />
                 <Icon
                   name="dots-vertical"
-                  size={20}
+                  size={25}
                   color={Colors.header.iconColor}
+                  style={{fontWeight: '100'}}
                 />
               </View>
             ),
@@ -94,7 +99,35 @@ const Navigation = () => {
         <Stack.Screen
           name="ChatRoom"
           component={ChatRoomContainer}
-          options={{title: 'Chat Room'}}
+          options={({route}) => ({
+            title: route?.params?.name,
+            headerRight: () => (
+              <View
+                style={[
+                  styles.HeaderIconContainer,
+                  styles.ChatScreenIconContainer,
+                ]}>
+                <VideoCallIcon
+                  size={20}
+                  color={Colors.header.iconColor}
+                  name="videocam"
+                  style={{marginRight: 20, fontWeight: '100'}}
+                />
+                <VoiceCallIcon
+                  size={16}
+                  color={Colors.header.iconColor}
+                  name="phone-alt"
+                  style={{marginRight: 20, fontWeight: '100'}}
+                />
+                <ThreeDotIcon
+                  size={16}
+                  color={Colors.header.iconColor}
+                  name="dots-three-vertical"
+                  style={{marginRight: 20, fontWeight: '100'}}
+                />
+              </View>
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

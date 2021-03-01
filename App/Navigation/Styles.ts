@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
     width: 60,
     justifyContent: 'center',
     marginRight: 10,
+    alignItems: 'center',
+  },
+  ChatScreenIconContainer: {
+    marginRight: 20,
   },
 });
 

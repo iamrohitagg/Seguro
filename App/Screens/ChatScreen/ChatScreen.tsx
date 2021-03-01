@@ -1,22 +1,22 @@
 import React from 'react';
-import {View, Text, Image, StatusBar, TouchableOpacity} from 'react-native';
+import { View, Text, Image, StatusBar, TouchableOpacity } from 'react-native';
 import styles from './Styles';
-import {ChatRoom} from '../../Types/types';
+import { ChatRoom } from '../../Types/types';
 import moment from 'moment';
 import Colors from '../../Themes/Colors';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 export type ChatRoomProps = {
   chatRoom: ChatRoom;
 };
 
 const ChatScreen = (props: ChatRoomProps) => {
-  const {chatRoom} = props;
+  const { chatRoom } = props;
   const user = chatRoom.users[1];
   const navigation = useNavigation();
 
   const onChatListItemPress = () => {
-    navigation.navigate('ChatRoom', {name: user.name});
+    navigation.navigate('ChatRoom', { name: user.name });
   };
 
   return (
@@ -30,7 +30,7 @@ const ChatScreen = (props: ChatRoomProps) => {
           barStyle="light-content"
         />
 
-        <Image source={{uri: user.imageUri}} style={styles.avatar} />
+        <Image source={{ uri: user.imageUri }} style={styles.avatar} />
         <View style={styles.middleContainer}>
           <Text style={styles.userName}>{user.name}</Text>
           <Text style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
